@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Generador de Palabras Aleatorias</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Palabra Aleatoria</h1>
+        <button onclick="generarPalabra()">Generar Palabra</button>
+        <p id="palabraGenerada"></p>
+    </div>
+
+    <script>
+        const palabras = [
+        "creatividad", "innovación", "exploración", "imaginación", "desafío", "inspiración",
+        "solución", "futuro", "descubrimiento", "aventura", "cambio", "transformación",
+        "singularidad", "impacto", "conexión", "visión", "oportunidad", "perseverancia",
+        "coraje", "resiliencia", "colaboración", "efervescencia", "curiosidad", "sorpresa",
+        "pionero", "progresión", "efecto mariposa", "epifanía", "audacia", "optimismo",
+        "invención", "maestría", "serendipia", "trascendencia", "armonía", "sinergia",
+        "innato", "prosperidad", "vanguardia", "renovación", "catalizador", "éxito",
+        "holístico", "incandescente", "luminoso", "quimera", "efímero", "renacimiento",
+        "quintaesencia", "eflorescencia", "efusión", "sinfonía", "proeza", "exuberancia",
+        "crepúsculo", "efulgencia", "esencia", "magnificencia", "esplendor", "prisma"
+      ];
+      
+      let palabrasUsadas = [];
+      
+      function generarPalabra() {
+          const palabraGenerada = document.getElementById("palabraGenerada");
+      
+          if (palabrasUsadas.length === palabras.length) {
+              palabrasUsadas = [];
+          }
+      
+          let palabraAleatoria;
+          do {
+              palabraAleatoria = palabras[Math.floor(Math.random() * palabras.length)];
+          } while (palabrasUsadas.includes(palabraAleatoria));
+      
+          palabrasUsadas.push(palabraAleatoria);
+      
+          palabraGenerada.textContent = palabraAleatoria;
+      }
+      
+    </script>
+</body>
+</html>
